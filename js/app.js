@@ -51,10 +51,16 @@ document.getElementById('varify-pin').addEventListener('click', function(){
     const inputTypeField = document.getElementById('input-type-number');
     const carentType = inputTypeField.value;
 
+
+    const pinSuccessMassage = document.getElementById('pin-seccess');
+    const pinFailMassage = document.getElementById('pin-failer');
+
     if(carentPin === carentType){
-        console.log('Carect pin')
+        pinSuccessMassage.style.display = 'block';
+        pinFailMassage.style.display = 'none';
     }
     else{
-        console.log('apner pin thik noi')
+        pinFailMassage.style.display = 'block';
+        pinSuccessMassage.style.display = 'none';
     }
 })
