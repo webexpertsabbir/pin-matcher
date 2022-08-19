@@ -24,13 +24,37 @@ document.getElementById('generate-pin').addEventListener('click', function(){
 //number click event
 document.getElementById('calculator').addEventListener('click', function(event){
     const number = event.target.innerText;
+    const inputTypeField = document.getElementById('input-type-number');
+    const previousTypeNumber = inputTypeField.value;
     if(isNaN(number)){
-        console.log(number);
+        if(number === 'C'){
+            inputTypeField.value = '';
+        }
+        else if(number === '<'){
+            const digits = previousTypeNumber.split('');
+            digits.pop()
+            const menainDigits = digits.join('');
+            inputTypeField.value = menainDigits;
+        }
     }
     else{
-        const inputTypeField = document.getElementById('input-type-number');
-        const previousTypeNumber = inputTypeField.value;
+        
         const newTypeNumber = previousTypeNumber + number;
         inputTypeField.value = newTypeNumber;
+    }
+})
+
+document.getElementById('varify-pin').addEventListener('click', function(){
+    const displayPinField = document.getElementById('display-pin');
+    const carentPin = displayPinField.value;
+
+    const inputTypeField = document.getElementById('input-type-number');
+    const carentType = inputTypeField.value;
+
+    if(carentPin === carentType){
+        console.log('Carect pin')
+    }
+    else{
+        console.log('apner pin thik noi')
     }
 })
